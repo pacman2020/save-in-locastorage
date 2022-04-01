@@ -6,6 +6,21 @@ const key_find = document.querySelector('#key_find')
 const btn_find = document.querySelector('#btn_find')
 const infor = document.querySelector('.infor')
 
+const key_find_del = document.querySelector('#key_find_del')
+const btn_find_del = document.querySelector('#btn_find_del')
+
+btn_find_del.addEventListener('click', ()=>{
+    let res = confirm(`deseja realmente excluir ${key_find_del.value}: `)
+    if (res) {
+        alert('dado excluido')
+        localStorage.removeItem(key_find_del.value)
+        key_find_del.value = ''
+    } else {
+        alert('excluzão cancelada!')
+        key_find_del.value = ''
+    }
+
+})
 
 btn_send.addEventListener('click',()=>{
     try {
