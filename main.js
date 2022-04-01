@@ -4,17 +4,24 @@ const btn_send = document.querySelector('#btn_send')
 
 const key_find = document.querySelector('#key_find')
 const btn_find = document.querySelector('#btn_find')
-const ul = document.querySelector('.ul')
+const infor = document.querySelector('.infor')
 
 
 btn_send.addEventListener('click',()=>{
-    console.log(key_name.value, content.value)
-    localStorage.setItem(`${key_name.value}`,content.value)
-    alert('save')
+    try {
+        console.log(key_name.value, content.value)
+        localStorage.setItem(`${key_name.value}`,content.value)
+        key_name.value = ''
+        alert('save')
+    
+    } catch (error) {
+        alert(error)
+    }
 })
 
 btn_find.addEventListener('click', ()=>{
     if(localStorage.getItem(key_find.value)){
-        ul.innerHTML = localStorage.getItem(key_find.value)
+        infor.innerHTML = localStorage.getItem(key_find.value)
+        key_find.value = ""
     }
 })
